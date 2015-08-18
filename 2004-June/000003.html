@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Taca-dev] Una miqueta de LaTeX
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/taca-dev/2004-June/index.html" >
+   <LINK REL="made" HREF="mailto:taca-dev%40lists.berlios.de?Subject=Re%3A%20%5BTaca-dev%5D%20Una%20miqueta%20de%20LaTeX&In-Reply-To=%3C20040608200914.GA7166%40dante.xlab.taz%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Taca-dev] Una miqueta de LaTeX</H1>
+    <B>Lluis</B> 
+    <A HREF="mailto:taca-dev%40lists.berlios.de?Subject=Re%3A%20%5BTaca-dev%5D%20Una%20miqueta%20de%20LaTeX&In-Reply-To=%3C20040608200914.GA7166%40dante.xlab.taz%3E"
+       TITLE="[Taca-dev] Una miqueta de LaTeX">xscript at gmx.net
+       </A><BR>
+    <I>Tue Jun  8 22:09:15 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000002.html">[Taca-dev] ....hola?
+</A></li>
+        <LI>Next message: <A HREF="000004.html">[Taca-dev] Una miqueta de LaTeX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Be, com que segurament cadasc&#250; escriur&#224; la seva petita part per separat,
+us faig una petita micro-introducci&#243; a LaTex (orientat totalment al
+nostre treball)
+
+Primer de tot, fa falta el fitxer de 'babel' amb les traduccions i el
+hypenation (com separar per silabes) en catala
+
+A debian en concret no hi es (per saber-ho, al compilar el document amb
+kile - ho explico despres - anar a la pestanya de &quot;Salida&quot; i mirar si a
+la 3a linia, on diu Babel, apareix el &quot;catalan&quot;), aixi que s'ha de
+baixar el cahyph.tex
+(<A HREF="ftp://ftp.fu-berlin.de/tex/CTAN/language/hyphenation/cahyph.tex,">ftp://ftp.fu-berlin.de/tex/CTAN/language/hyphenation/cahyph.tex,</A> per
+exemple) i posar-lo a /usr/share/texmf/tex/generic/hyphen/cahyph.tex
+
+Despres executeu com a root 'texconfig', aneu a la opcio 'HYPHEN' i alla a
+'latex', apareixera un editor (vi) amb un fitxer on heu d'afegir la
+linia 'catalan cahyph.tex' (us recomano afegir-ho a prop del spanish...
+nomes per tenir-ho juntet, i si voleu podeu comentar les linies de
+alemany, frances i australia... no crec que ho feu servir ;))
+
+Aleshores feu EXIT i es reconstruira la BD del hypenation (o algo
+aixi... comen&#231;a a fer tot de coses)
+
+De fet, aixo ja no sera necessari fer-ho aixi en noves versions, pero
+fins no fa gaire el fitxer de hypenation de catala no era lliure (ara ja
+si, nomes cal esperar que l'afegeixin en noves versions)
+
+
+--------------&gt; Be, i despres d'aixo anem al que interessa.
+
+Cal instal.lar:
+- kile: editor de LaTeX
+
+obrim el 00-taca.tex i apretem al boto de documento maestro, aixi quan
+compilem ho fara sempre a partir d'aquest fitxer i no del que estiguem
+mirant (el boto de la primera fila a la dreta de tot, o
+Preferencias-&gt;Modo normal (blabla...))
+
+el text esta estructurat per cap&#237;tols, al menu de Latex hi tenim quasibe
+qualsevol cosa que puguem necessitar (negreta, itali, centrat, creacio
+de capitols, salt de linia, etc)
+
+tambe tenim les seccion, capitols etc a la pestanya de mes a l'esquerra
+(3a fila), i botons d'acces rapid a negreta, centrat, salt de linia, etc
+a la mateixa fila (ja ho veureu)
+
+una cosa que m'ha putejat un munt: l'underscore (_) s'escriu \_, pq sino
+latex ho interpreta com un subindex d'una funcio matematica
+
+un salt simple de linea no fa res
+
+una linia en blan en mig es un canvi de paragraf
+
+per compilar (en aquest ordre):
+Alt+2 (genera el .dvi)
+Alt+= (genera l'&#237;ndex)
+Alt+- (genera la bibliografia, l'ordre entre index i bibliografia es pot canviar)
+Alt+2 (regenerem el .dvi amb les dades d'index i/o bibliografia)
+Alt+2 (si hem modificat la bibliografia - o la generem de zero - es necessari tornar a generar el .dvi per resoldre els enlla&#231;os
+Alt+3 (visualitzacio del .dvi)
+
+Generar-&gt;Limpiar neteja els fitxers auxiliars (ens hem de posar a
+00-taca.tex pq sino borra els .log i demes del que estiguem mirant),
+l'unic que hem de borrar a ma es el fitxer autogenerat de bibliografia
+00-taca.blg i els de backup (es poden desactivar els backups a les
+preferencies del kile)
+
+La bibliografie esta tota al fitxer 00-taca.bib, si no el voleu editar a
+ma heu d'instal.lar el programa gbib, i aleshores feu: 
+Editar-&gt;Actualizar estructura (no se pq pero es necessari)
+Generar-&gt;Ver-&gt;View Bibtex: obre el programa amb el fitxer de
+bibliografia, abans de recompilar recordeu de guardar la bibliografia -
+boto save - pq sino no trobara el que heu afegit XD, el que jo he fet
+servir es:
+Edicio-&gt;Inser entry-&gt;manual (manual es el tipus d'entrada)
+Key: text identificador de la cita
+Title: titol de la pagina web
+Note: adre&#231;a de la web
+si no citeu pagines web potser pot anar be algun altre format, no se, ja
+veureu la llista que hi ha i agafeu el mes adequat
+
+aleshores, per fer una cita fem:
+
+\cite{clau-de-la-cita}
+apareixera el numero corresponent a l'entrada de la bibliografia
+(com als papers)
+
+\nocite{clau-de-la-cita}
+no apareixera la referencia al text, pero si que sortiran les dades
+corresponents a la cita en la bibliografia (si no s'utilitza cap dels
+dos metodes no apareixera l'entrada a la bibliografia)
+
+Ah! i les subsubsection i jerarquies inferiors NO apareixen a l'index
+(no pq ho haguem fet malament, sino pq es aixi)
+
+Be, crec que amb aixo ja es suficient... qualsevol dubte, ja sabeu, m'ho
+pregunteu a mi o al google (aquest segon segur que tindra mes i millors
+respostes)
+
+apa!
+-- 
+ &quot;And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer.&quot;
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000002.html">[Taca-dev] ....hola?
+</A></li>
+	<LI>Next message: <A HREF="000004.html">[Taca-dev] Una miqueta de LaTeX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/taca-dev">More information about the Taca-dev
+mailing list</a><br>
+</body></html>

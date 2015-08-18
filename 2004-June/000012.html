@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Taca-dev] Ens falta codi
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/taca-dev/2004-June/index.html" >
+   <LINK REL="made" HREF="mailto:taca-dev%40lists.berlios.de?Subject=Re%3A%20%5BTaca-dev%5D%20Ens%20falta%20codi&In-Reply-To=%3C20040621113322.GA1591%40dante.xlab.taz%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Taca-dev] Ens falta codi</H1>
+    <B>Lluis</B> 
+    <A HREF="mailto:taca-dev%40lists.berlios.de?Subject=Re%3A%20%5BTaca-dev%5D%20Ens%20falta%20codi&In-Reply-To=%3C20040621113322.GA1591%40dante.xlab.taz%3E"
+       TITLE="[Taca-dev] Ens falta codi">xscript at gmx.net
+       </A><BR>
+    <I>Mon Jun 21 13:33:22 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000011.html">[Taca-dev] Re: [DSO]
+</A></li>
+        <LI>Next message: <A HREF="000013.html">[Taca-dev] Ens falta codi
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Be, tot passant el linux.c que teniem al principi a varis fitxers
+separats, m'he adonat de que el codi que teniem te un gravissim error.
+
+i es que creem els seus continguts en el lookup nomes mirant la
+distancia que te cap al superbloc (si es directori, subdirectori,
+subsubdirectori, etc)
+
+pero no mirem el seu nom, de forma que si fem:
+
+# ls /tacafs/
+c1
+# ls /tacafs/c1
+n0 n1 n2
+# ls /tacafs/c1/n0/
+p1 p2 p3
+# ls /tacafs/c2/
+n0 n1 n2
+# ls /tacafs/c67
+n0 n1 n2
+
+que us sembla? jo diria que aixo no rutlla ;)
+en fi, ahir ho vaig comen&#231;ar a arreglar, pero encara no he estudiat DSO
+i casi que jo diria a la julita que agafem els dos dies extres per
+arreglar-ho
+
+ja em direu
+
+apa!
+-- 
+ &quot;And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer.&quot;
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000011.html">[Taca-dev] Re: [DSO]
+</A></li>
+	<LI>Next message: <A HREF="000013.html">[Taca-dev] Ens falta codi
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/taca-dev">More information about the Taca-dev
+mailing list</a><br>
+</body></html>

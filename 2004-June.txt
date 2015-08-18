@@ -1,0 +1,935 @@
+From xscript at gmx.net  Tue Jun  1 20:53:57 2004
+From: xscript at gmx.net (Lluis)
+Date: Tue, 1 Jun 2004 20:53:57 +0200
+Subject: [Taca-dev] test
+Message-ID: <20040601185357.GA3585@dante.xlab.taz>
+
+test
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From gnome_xxi at hotmail.com  Tue Jun  8 13:46:03 2004
+From: gnome_xxi at hotmail.com (=?iso-8859-1?B?Sm9uYXRoYW4gTWFydO0=?=)
+Date: Tue, 08 Jun 2004 11:46:03 +0000
+Subject: [Taca-dev] ....hola?
+Message-ID: <BAY16-F99rUV0hCLwHc000082a3@hotmail.com>
+
+hola hola hola hola
+
+_________________________________________________________________
+Dale rienda suelta a tu tiempo libre. Encuentra mil ideas para exprimir tu 
+ocio con MSN Entretenimiento. http://entretenimiento.msn.es/
+
+
+
+From xscript at gmx.net  Tue Jun  8 20:20:58 2004
+From: xscript at gmx.net (Lluis)
+Date: Tue, 8 Jun 2004 20:20:58 +0200
+Subject: [Taca-dev] ....hola?
+In-Reply-To: <BAY16-F99rUV0hCLwHc000082a3@hotmail.com>
+References: <BAY16-F99rUV0hCLwHc000082a3@hotmail.com>
+Message-ID: <20040608182058.GA5182@dante.xlab.taz>
+
+El 08/06/04, a les 11:46:03, Jonathan Mart? ens deleit? amb les seg?ents paraules:
+> hola hola hola hola
+> 
+hola hola pajarito sin cola
+
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From xscript at gmx.net  Tue Jun  8 22:09:15 2004
+From: xscript at gmx.net (Lluis)
+Date: Tue, 8 Jun 2004 22:09:15 +0200
+Subject: [Taca-dev] Una miqueta de LaTeX
+Message-ID: <20040608200914.GA7166@dante.xlab.taz>
+
+Be, com que segurament cadasc? escriur? la seva petita part per separat,
+us faig una petita micro-introducci? a LaTex (orientat totalment al
+nostre treball)
+
+Primer de tot, fa falta el fitxer de 'babel' amb les traduccions i el
+hypenation (com separar per silabes) en catala
+
+A debian en concret no hi es (per saber-ho, al compilar el document amb
+kile - ho explico despres - anar a la pestanya de "Salida" i mirar si a
+la 3a linia, on diu Babel, apareix el "catalan"), aixi que s'ha de
+baixar el cahyph.tex
+(ftp://ftp.fu-berlin.de/tex/CTAN/language/hyphenation/cahyph.tex, per
+exemple) i posar-lo a /usr/share/texmf/tex/generic/hyphen/cahyph.tex
+
+Despres executeu com a root 'texconfig', aneu a la opcio 'HYPHEN' i alla a
+'latex', apareixera un editor (vi) amb un fitxer on heu d'afegir la
+linia 'catalan cahyph.tex' (us recomano afegir-ho a prop del spanish...
+nomes per tenir-ho juntet, i si voleu podeu comentar les linies de
+alemany, frances i australia... no crec que ho feu servir ;))
+
+Aleshores feu EXIT i es reconstruira la BD del hypenation (o algo
+aixi... comen?a a fer tot de coses)
+
+De fet, aixo ja no sera necessari fer-ho aixi en noves versions, pero
+fins no fa gaire el fitxer de hypenation de catala no era lliure (ara ja
+si, nomes cal esperar que l'afegeixin en noves versions)
+
+
+--------------> Be, i despres d'aixo anem al que interessa.
+
+Cal instal.lar:
+- kile: editor de LaTeX
+
+obrim el 00-taca.tex i apretem al boto de documento maestro, aixi quan
+compilem ho fara sempre a partir d'aquest fitxer i no del que estiguem
+mirant (el boto de la primera fila a la dreta de tot, o
+Preferencias->Modo normal (blabla...))
+
+el text esta estructurat per cap?tols, al menu de Latex hi tenim quasibe
+qualsevol cosa que puguem necessitar (negreta, itali, centrat, creacio
+de capitols, salt de linia, etc)
+
+tambe tenim les seccion, capitols etc a la pestanya de mes a l'esquerra
+(3a fila), i botons d'acces rapid a negreta, centrat, salt de linia, etc
+a la mateixa fila (ja ho veureu)
+
+una cosa que m'ha putejat un munt: l'underscore (_) s'escriu \_, pq sino
+latex ho interpreta com un subindex d'una funcio matematica
+
+un salt simple de linea no fa res
+
+una linia en blan en mig es un canvi de paragraf
+
+per compilar (en aquest ordre):
+Alt+2 (genera el .dvi)
+Alt+= (genera l'?ndex)
+Alt+- (genera la bibliografia, l'ordre entre index i bibliografia es pot canviar)
+Alt+2 (regenerem el .dvi amb les dades d'index i/o bibliografia)
+Alt+2 (si hem modificat la bibliografia - o la generem de zero - es necessari tornar a generar el .dvi per resoldre els enlla?os
+Alt+3 (visualitzacio del .dvi)
+
+Generar->Limpiar neteja els fitxers auxiliars (ens hem de posar a
+00-taca.tex pq sino borra els .log i demes del que estiguem mirant),
+l'unic que hem de borrar a ma es el fitxer autogenerat de bibliografia
+00-taca.blg i els de backup (es poden desactivar els backups a les
+preferencies del kile)
+
+La bibliografie esta tota al fitxer 00-taca.bib, si no el voleu editar a
+ma heu d'instal.lar el programa gbib, i aleshores feu: 
+Editar->Actualizar estructura (no se pq pero es necessari)
+Generar->Ver->View Bibtex: obre el programa amb el fitxer de
+bibliografia, abans de recompilar recordeu de guardar la bibliografia -
+boto save - pq sino no trobara el que heu afegit XD, el que jo he fet
+servir es:
+Edicio->Inser entry->manual (manual es el tipus d'entrada)
+Key: text identificador de la cita
+Title: titol de la pagina web
+Note: adre?a de la web
+si no citeu pagines web potser pot anar be algun altre format, no se, ja
+veureu la llista que hi ha i agafeu el mes adequat
+
+aleshores, per fer una cita fem:
+
+\cite{clau-de-la-cita}
+apareixera el numero corresponent a l'entrada de la bibliografia
+(com als papers)
+
+\nocite{clau-de-la-cita}
+no apareixera la referencia al text, pero si que sortiran les dades
+corresponents a la cita en la bibliografia (si no s'utilitza cap dels
+dos metodes no apareixera l'entrada a la bibliografia)
+
+Ah! i les subsubsection i jerarquies inferiors NO apareixen a l'index
+(no pq ho haguem fet malament, sino pq es aixi)
+
+Be, crec que amb aixo ja es suficient... qualsevol dubte, ja sabeu, m'ho
+pregunteu a mi o al google (aquest segon segur que tindra mes i millors
+respostes)
+
+apa!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From xscript at gmx.net  Tue Jun  8 22:29:06 2004
+From: xscript at gmx.net (Lluis)
+Date: Tue, 8 Jun 2004 22:29:06 +0200
+Subject: [Taca-dev] Una miqueta de LaTeX
+In-Reply-To: <20040608200914.GA7166@dante.xlab.taz>
+References: <20040608200914.GA7166@dante.xlab.taz>
+Message-ID: <20040608202906.GB7166@dante.xlab.taz>
+
+Per cert, per escriure el text
+<opMosix_ID>
+com que latex interpreta alguns caracter com a matematics (es pot
+desactivar el mode matematic, pero ara no se com... :P)
+s'hauria d'escriure
+\textless opMosix\_ID\textgreater
+per tal que no ho interpreti com a tal
+
+apa!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From kaesarbcn at tiscali.es  Wed Jun  9 23:34:20 2004
+From: kaesarbcn at tiscali.es (=?ISO-8859-1?Q?C=E9sar_P=E9rez_Laguna?=)
+Date: Wed, 09 Jun 2004 23:34:20 +0200
+Subject: [Taca-dev] Una miqueta de LaTeX
+In-Reply-To: <20040608202906.GB7166@dante.xlab.taz>
+References: <20040608200914.GA7166@dante.xlab.taz> <20040608202906.GB7166@dante.xlab.taz>
+Message-ID: <40C7825C.5000707@tiscali.es>
+
+Hola,
+que tal ha ido la sesi?n de hoy?
+hemos quedado ma?ana? a las 3'20 en la nevera?
+Bueno, ya direis algo.
+Nos vemos.
+
+
+
+
+
+From xscript at gmx.net  Fri Jun 11 05:29:23 2004
+From: xscript at gmx.net (Lluis)
+Date: Fri, 11 Jun 2004 05:29:23 +0200
+Subject: [Taca-dev] Remodelacio
+Message-ID: <20040611032922.GB6710@dante.xlab.taz>
+
+Bones, he creat el modul code, que no es res mes que el codi que ja
+teniem pero reordenat en directoris, pensat com si hi pogues haver
+diferents forntends i backends (si , ja ho se, nomes en farem un i a
+mitges, pero tenir-ho ben posadet tampoc fa mal)
+
+ja estan els fitxers renombrats, tots els makefiles creats i demes
+histories
+
+a Rules.conf hi ha la configuracio (quins frontends i backend es volen
+compilar, i MOLT IMPORTANT, on esta gurdat el nucli - aixo s'haura de
+canviar i apuntar on toqui -)
+
+si algun front o back el feu amb mes d'un fitxer, nomes heu de
+descomentar les dues linies corresponents als makefiles que hi ha a
+cadascun dels dos directoris (enlloc de a.c i b.c poseu el que toqui)
+
+mmmm, em sembla que no em deixo res.. ah, si! cvs co code des de l'arrel
+del projecte ;)
+
+ah! i les regles disponibles son:
+
+all (defecte) : compila
+re-all        : neteja i recompila
+clean         : neteja
+run           : carrega el modul i munta el sf (compila si no hi es)
+re-run        : desmunta el sf, descarrega el modul i fa un altre run
+
+apa!
+
+PD: mireu el compte de la llista de correu taca-dev? ho dic per saber on
+enviar-vos el e-mails, pq si resulta que us vau donar d'alta a berlios amb
+un compte que no mireu, de poc ens servira la llista... ;)
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From kaesarbcn at tiscali.es  Mon Jun 14 20:01:02 2004
+From: kaesarbcn at tiscali.es (=?ISO-8859-1?Q?C=E9sar_P=E9rez_Laguna?=)
+Date: Mon, 14 Jun 2004 20:01:02 +0200
+Subject: [Taca-dev] DSO: esto se acaba, no?
+Message-ID: <40CDE7DE.7020908@tiscali.es>
+
+Hola Lluis,
+hemos quedado para ma?ana, pero a partir de las 5 (Albert y Jonhy tienen 
+examen de ASO).
+Si quieres podemos quedar un poco antes, pero avisame (soy C?sar).
+
+Hemos estado tocando el codigo pero lo hemos subido a cvs en "codi" 
+porque el Makefile que
+nos pasaste no compilaba.
+La parte que hemos tocado hoy a sido el backend.
+Hemos intentado hacer el llistar_nodes mediante la API de /proc, pero al 
+parecer los directorios
+de /proc/hpc/nodes/... se generan dinamicamente y no lo podemos hacer.
+
+Llegados a este punto se ha planteado el dar la practica por finalizada 
+(la implementaci?n) y
+comentar en la documentaci?n que no nos ha sido posible por esto.
+Bueno, a ver que te parece, y si tienes otra idea.... comentanosla.
+
+
+
+
+From xscript at gmx.net  Mon Jun 14 20:43:36 2004
+From: xscript at gmx.net (Lluis)
+Date: Mon, 14 Jun 2004 20:43:36 +0200
+Subject: [Taca-dev] DSO: esto se acaba, no?
+In-Reply-To: <40CDE7DE.7020908@tiscali.es>
+References: <40CDE7DE.7020908@tiscali.es>
+Message-ID: <20040614184336.GB1396@dante.xlab.taz>
+
+El 14/06/04, a les 20:01:02, C?sar ens deleit? amb les seg?ents paraules:
+> Hola Lluis,
+> hemos quedado para ma?ana, pero a partir de las 5 (Albert y Jonhy tienen 
+> examen de ASO).
+> Si quieres podemos quedar un poco antes, pero avisame (soy C?sar).
+> 
+ok, pos yo subire a comer al bar por alla las 2:45, asi que podemos
+quedar por alla las 3 y algo (i 15 mas o menos)
+de todas formas yo ire igual
+
+> Hemos estado tocando el codigo pero lo hemos subido a cvs en "codi" 
+> porque el Makefile que nos pasaste no compilaba.
+mmm, no se, suna muy cabron, pero habes configurado el Rules.conf tal
+como dije en el mail? es lo unico que se me ocurre ahora sin poder
+probarlo... :P
+
+> La parte que hemos tocado hoy a sido el backend.
+> Hemos intentado hacer el llistar_nodes mediante la API de /proc, pero al 
+> parecer los directorios
+> de /proc/hpc/nodes/... se generan dinamicamente y no lo podemos hacer.
+> 
+como habeis intentado hacerlo? (esta en el codigo? si es asi ahora me lo
+miro)
+
+> Llegados a este punto se ha planteado el dar la practica por finalizada 
+> (la implementaci?n) y
+> comentar en la documentaci?n que no nos ha sido posible por esto.
+> Bueno, a ver que te parece, y si tienes otra idea.... comentanosla.
+> 
+no se no se... segure que debe poderse, total, haces una peticion a ese
+inodo (lo resuelves) y entra en juego el openmosix para rellenar los
+contenidos, no?
+o como habeis intentado hacerlo?
+
+ens veiem dema!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From albertfc at anota.net  Wed Jun 16 02:55:18 2004
+From: albertfc at anota.net (=?ISO-8859-1?Q?Albert_Farr=E9s?=)
+Date: Wed, 16 Jun 2004 00:55:18 +0000
+Subject: [Taca-dev] Interessant, no som els =?ISO-8859-1?Q?=FAnics?=
+Message-ID: <40CF9A76.6080408@anota.net>
+
+Hola a tots
+
+	Buscant pel google he trobat aix?: 
+http://seclists.org/lists/linux-kernel/2004/May/0243.html
+
+Un tio t? el mateix problema que nosaltres, vol llegir un fitxer des del 
+kernel i no sab molt b? com fer-ho. De les respostes que li donen m?s o 
+menys entenc (ja sabeu com ?s el meu angles) que el que s'ha de fer ?s 
+crear un programa que s'executar? de manera normal (en espai d'usuari) 
+per obtenir la info que vols (llegir els fitxers) i despr?s comunicar-te 
+amb el programa per que et passi la info. El problema que despr?s es 
+plantega ?s: com et comuniques amb un proc?s d'usuari?
+
+	Si algu t? ganes que su llegeixi i em digui si ?s aix? el que diu o no.
+
+Apa, adeu
+
+Albert
+
+
+From albertfc at anota.net  Wed Jun 16 03:10:44 2004
+From: albertfc at anota.net (=?ISO-8859-1?Q?Albert_Farr=E9s?=)
+Date: Wed, 16 Jun 2004 01:10:44 +0000
+Subject: [Taca-dev] Re: Interessant, no som els =?ISO-8859-1?Q?=FAnics?=
+In-Reply-To: <40CF9A76.6080408@anota.net>
+References: <40CF9A76.6080408@anota.net>
+Message-ID: <40CF9E14.7020503@anota.net>
+
+En/na Albert Farr?s ha escrit:
+> Hola a tots
+> 
+>     Buscant pel google he trobat aix?: 
+> http://seclists.org/lists/linux-kernel/2004/May/0243.html
+> 
+> Un tio t? el mateix problema que nosaltres, vol llegir un fitxer des del 
+> kernel i no sab molt b? com fer-ho. De les respostes que li donen m?s o 
+> menys entenc (ja sabeu com ?s el meu angles) que el que s'ha de fer ?s 
+> crear un programa que s'executar? de manera normal (en espai d'usuari) 
+> per obtenir la info que vols (llegir els fitxers) i despr?s comunicar-te 
+> amb el programa per que et passi la info. El problema que despr?s es 
+> plantega ?s: com et comuniques amb un proc?s d'usuari?
+
+Aqui respon (de manera conceptual) la pregunta:
+http://www.uwsg.iu.edu/hypermail/linux/kernel/9901.3/1226.html
+> 
+>     Si algu t? ganes que su llegeixi i em digui si ?s aix? el que diu o no.
+> 
+> Apa, adeu
+> 
+> Albert
+> 
+
+Bona nit
+
+
+From albertfc at anota.net  Sun Jun 20 16:13:01 2004
+From: albertfc at anota.net (=?ISO-8859-1?Q?Albert_Farr=E9s?=)
+Date: Sun, 20 Jun 2004 14:13:01 +0000
+Subject: [Taca-dev] Re: [DSO]
+In-Reply-To: <20040619200514.GA9925@dante.xlab.taz>
+References: <20040619200514.GA9925@dante.xlab.taz>
+Message-ID: <40D59B6D.7030103@anota.net>
+
+En/na Lluis ha escrit:
+> Be, no us ho envio per la llista de taca-dev pq te un limit maxim als
+> adjunts (es pot canviar, pero passo per un sol missatge)
+> 
+> Aqui teniu la versio amb les correccions que ja ha fet l'albert, l'acces
+> als threads afegit al capitol 3/4 (a dins del directori del proces), que
+> ho vam comentar al principi de tot pero despres ja ens en vam oblidar
+> del tot, i finalment el capitol 6 amb un parell de possibles millores a
+> l'arquitectura (si se us ocurreix alguna altra, ja sabeu).
+> 
+> apa!
+
+ol?!, jo el veig perfecte! Felicitats a tots. Ens poso un 10
+
+Albert
+
+P.D.: reconec que la idea del Llu?s de fer-ho amb Latex ha estat de puta 
+mare, encara que al principi em sembles una pijada.
+
+
+From xscript at gmx.net  Mon Jun 21 13:33:22 2004
+From: xscript at gmx.net (Lluis)
+Date: Mon, 21 Jun 2004 13:33:22 +0200
+Subject: [Taca-dev] Ens falta codi
+Message-ID: <20040621113322.GA1591@dante.xlab.taz>
+
+Be, tot passant el linux.c que teniem al principi a varis fitxers
+separats, m'he adonat de que el codi que teniem te un gravissim error.
+
+i es que creem els seus continguts en el lookup nomes mirant la
+distancia que te cap al superbloc (si es directori, subdirectori,
+subsubdirectori, etc)
+
+pero no mirem el seu nom, de forma que si fem:
+
+# ls /tacafs/
+c1
+# ls /tacafs/c1
+n0 n1 n2
+# ls /tacafs/c1/n0/
+p1 p2 p3
+# ls /tacafs/c2/
+n0 n1 n2
+# ls /tacafs/c67
+n0 n1 n2
+
+que us sembla? jo diria que aixo no rutlla ;)
+en fi, ahir ho vaig comen?ar a arreglar, pero encara no he estudiat DSO
+i casi que jo diria a la julita que agafem els dos dies extres per
+arreglar-ho
+
+ja em direu
+
+apa!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From albertfc at anota.net  Mon Jun 21 15:47:06 2004
+From: albertfc at anota.net (=?ISO-8859-1?Q?Albert_Farr=E9s?=)
+Date: Mon, 21 Jun 2004 13:47:06 +0000
+Subject: [Taca-dev] Ens falta codi
+In-Reply-To: <20040621113322.GA1591@dante.xlab.taz>
+References: <20040621113322.GA1591@dante.xlab.taz>
+Message-ID: <40D6E6DA.2060003@anota.net>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+En/na Lluis ha escrit:
+| Be, tot passant el linux.c que teniem al principi a varis fitxers
+| separats, m'he adonat de que el codi que teniem te un gravissim error.
+|
+| i es que creem els seus continguts en el lookup nomes mirant la
+| distancia que te cap al superbloc (si es directori, subdirectori,
+| subsubdirectori, etc)
+|
+| pero no mirem el seu nom, de forma que si fem:
+|
+| # ls /tacafs/
+| c1
+| # ls /tacafs/c1
+| n0 n1 n2
+| # ls /tacafs/c1/n0/
+| p1 p2 p3
+| # ls /tacafs/c2/
+| n0 n1 n2
+| # ls /tacafs/c67
+| n0 n1 n2
+|
+| que us sembla? jo diria que aixo no rutlla ;)
+| en fi, ahir ho vaig comen?ar a arreglar, pero encara no he estudiat DSO
+| i casi que jo diria a la julita que agafem els dos dies extres per
+| arreglar-ho
+|
+| ja em direu
+|
+| apa!
+
+Aix? ja ho sabiem, em sembla que vam posar on comentari on ho deiem per
+alguna part del codi. Jo no crec que sigui un error grav?ssim,
+simplement ens falta fer certes comprovacions. Tamb? si proves a fer "cd
+merda", entra al directori "merda" i no existeix. Simpelement falta fer
+certes comprovacions. Mantenint el comentari dins del codi crec que n'hi
+ha prou. Si ens ho mirem ha fons segur que ens falten mil comprovacions
+perque sigui un sistema de fitxers amb tota regla, per? pel que volem
+fer a la pr?ctica ja ens va b?.
+
+Jo voto per entregar ja, perque jo dimecres tinc criptografia i no ho
+puc dedicar m?s temps a DSO.
+
+Albert
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+
+iD8DBQFA1ubakqfboQkHmGARAmP4AKCT/Jj+8Puoe0Vk7dmDuRNXghEFpQCfckDJ
+NGT/0o81ItvLma5R2tN1Vgw=
+=D5wN
+-----END PGP SIGNATURE-----
+
+
+From xscript at gmx.net  Mon Jun 21 15:01:57 2004
+From: xscript at gmx.net (Lluis)
+Date: Mon, 21 Jun 2004 15:01:57 +0200
+Subject: [Taca-dev] Ens falta codi
+In-Reply-To: <40D6E6DA.2060003@anota.net>
+References: <20040621113322.GA1591@dante.xlab.taz> <40D6E6DA.2060003@anota.net>
+Message-ID: <20040621130157.GD1591@dante.xlab.taz>
+
+El 21/06/04, a les 13:47:06, Albert Farr?s ens deleit? amb les seg?ents paraules:
+> Aix? ja ho sabiem, em sembla que vam posar on comentari on ho deiem per
+> alguna part del codi. Jo no crec que sigui un error grav?ssim,
+> simplement ens falta fer certes comprovacions. Tamb? si proves a fer "cd
+> merda", entra al directori "merda" i no existeix. Simpelement falta fer
+> certes comprovacions. Mantenint el comentari dins del codi crec que n'hi
+> ha prou. Si ens ho mirem ha fons segur que ens falten mil comprovacions
+> perque sigui un sistema de fitxers amb tota regla, per? pel que volem
+> fer a la pr?ctica ja ens va b?.
+> 
+> Jo voto per entregar ja, perque jo dimecres tinc criptografia i no ho
+> puc dedicar m?s temps a DSO.
+> 
+ostressss... ami es que em fa molta grima entregar aixi
+com que jo el proper el tinc dimarts i es DBD, ja m'encarrego jo
+d'arreglar aixo i li entrego "la cosa" quan ho tingui llest
+
+ja us anire informant
+
+> Albert
+> 
+apa!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From gnome_xxi at hotmail.com  Mon Jun 21 16:34:45 2004
+From: gnome_xxi at hotmail.com (=?iso-8859-1?B?Sm9uYXRoYW4gTWFydO0=?=)
+Date: Mon, 21 Jun 2004 14:34:45 +0000
+Subject: [Taca-dev] Ens falta codi
+Message-ID: <BAY16-F1151jYhAOylh00002c2c@hotmail.com>
+
+Bones,
+Opino el mateix que l'Albert, aix? que dius Lluis ?s una de les moltes coses 
+que ens falta comprovar, per? si b? no recordo si pel codi est? comentat, 
+entre nosaltres, mentre ho f?iem, ja ho vam tenir en compte, i vam pensar 
+que no ens pod?em dedicar a perdre el temps fent comprovacions, que el que 
+valia la pena era tenir un sistema de fitxers b?sic i que serv?s pel que 
+vol?em fer, i que en tot cas si ens sobrava temps ja ens dedicar?em a fer 
+comprovacions, perqu? ja et dic, no ?s l'?nica, per exemple la que diu 
+l'Albert ?s una altra: "cd merda" i hi entra! :P......ES LO QUE HAY! (falta 
+de temps)
+En fi, com tu vegis Lluis, per? jo dem? i dimecres no podr? quedar, aix? que 
+si t'ha de treure temps d'estudi o del que sigui i despr?s has d'anar 
+agobiat o algo, no ho facis. A m?s, ni tan sols el provaran, i si el 
+provessin ?s aix?, nom?s caldria comentar que per manca de temps ens falten 
+fer algunes comprovacions...
+
+AH! L'EXAMEN ES AMB APUUUNTS!!! (no se que es pitjor...:-S)
+Fins dem?.
+SALUT!
+                                                     Jonathan
+
+
+>From: Lluis <xscript at gmx.net>
+>To: taca-dev at lists.berlios.de
+>Subject: Re: [Taca-dev] Ens falta codi
+>Date: Mon, 21 Jun 2004 15:01:57 +0200
+>
+>El 21/06/04, a les 13:47:06, Albert Farr?s ens deleit? amb les seg?ents 
+>paraules:
+> > Aix? ja ho sabiem, em sembla que vam posar on comentari on ho deiem per
+> > alguna part del codi. Jo no crec que sigui un error grav?ssim,
+> > simplement ens falta fer certes comprovacions. Tamb? si proves a fer "cd
+> > merda", entra al directori "merda" i no existeix. Simpelement falta fer
+> > certes comprovacions. Mantenint el comentari dins del codi crec que n'hi
+> > ha prou. Si ens ho mirem ha fons segur que ens falten mil comprovacions
+> > perque sigui un sistema de fitxers amb tota regla, per? pel que volem
+> > fer a la pr?ctica ja ens va b?.
+> >
+> > Jo voto per entregar ja, perque jo dimecres tinc criptografia i no ho
+> > puc dedicar m?s temps a DSO.
+> >
+>ostressss... ami es que em fa molta grima entregar aixi
+>com que jo el proper el tinc dimarts i es DBD, ja m'encarrego jo
+>d'arreglar aixo i li entrego "la cosa" quan ho tingui llest
+>
+>ja us anire informant
+>
+> > Albert
+> >
+>apa!
+>--
+>  "And it's much the same thing with knowledge, for whenever you learn
+>  something new, the whole world becomes that much richer."
+>  -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+>  Tollbooth
+>_______________________________________________
+>Taca-dev mailing list
+>Taca-dev at lists.berlios.de
+>http://lists.berlios.de/mailman/listinfo/taca-dev
+
+_________________________________________________________________
+La informaci?n m?s fresca desde diferentes puntos de vista en la Revista de 
+Prensa de MSN. http://es.newsbot.msn.com/
+
+
+
+From xscript at gmx.net  Mon Jun 21 18:40:23 2004
+From: xscript at gmx.net (Lluis)
+Date: Mon, 21 Jun 2004 18:40:23 +0200
+Subject: [Taca-dev] Ens falta codi
+In-Reply-To: <BAY16-F1151jYhAOylh00002c2c@hotmail.com>
+References: <BAY16-F1151jYhAOylh00002c2c@hotmail.com>
+Message-ID: <20040621164023.GA5967@dante.xlab.taz>
+
+El 21/06/04, a les 14:34:45, Jonathan Mart? ens deleit? amb les seg?ents paraules:
+> Bones,
+> Opino el mateix que l'Albert, aix? que dius Lluis ?s una de les moltes 
+> coses que ens falta comprovar, per? si b? no recordo si pel codi est? 
+> comentat, entre nosaltres, mentre ho f?iem, ja ho vam tenir en compte, i 
+> vam pensar que no ens pod?em dedicar a perdre el temps fent comprovacions, 
+> que el que valia la pena era tenir un sistema de fitxers b?sic i que serv?s 
+> pel que vol?em fer, i que en tot cas si ens sobrava temps ja ens dedicar?em 
+> a fer comprovacions, perqu? ja et dic, no ?s l'?nica, per exemple la que 
+> diu l'Albert ?s una altra: "cd merda" i hi entra! :P......ES LO QUE HAY! 
+> (falta de temps)
+> En fi, com tu vegis Lluis, per? jo dem? i dimecres no podr? quedar, aix? 
+> que si t'ha de treure temps d'estudi o del que sigui i despr?s has d'anar 
+> agobiat o algo, no ho facis. A m?s, ni tan sols el provaran, i si el 
+> provessin ?s aix?, nom?s caldria comentar que per manca de temps ens falten 
+> fer algunes comprovacions...
+> 
+ja, pero es que aleshores en realitat li es igual que entrem al node 0
+que al node 2 a dins d'un cluster, es tot un unic objecte i el canvi a
+un afecta a tots... una cosa es que no ens funcioni lo del openmosix
+(tot i que finalment em van dir una forma que se suposa que funciona...
+no ho he provat, le veritat) i l'altra es aixo, jo trobo que es
+inacceptable
+
+ah! i en cap moment he dit de quedar, ho fare a caseta que no fa fred i
+amb tranquilitat, i tampoc perdre temps d'estudi pq no em penso passar
+tota una setmana estudiant DBD (no m'hi pensava posar fins divendres o
+dissabte)
+
+> AH! L'EXAMEN ES AMB APUUUNTS!!! (no se que es pitjor...:-S)
+> Fins dem?.
+> SALUT!
+>                                                     Jonathan
+ho he vist... :?
+
+apa!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From albertfc at anota.net  Tue Jun 22 18:06:10 2004
+From: albertfc at anota.net (=?ISO-8859-1?Q?Albert_Farr=E9s?=)
+Date: Tue, 22 Jun 2004 16:06:10 +0000
+Subject: [Taca-dev] Entrevista P2
+Message-ID: <40D858F2.1050507@anota.net>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hola!
+
+	A quina hora us va b? quedar per l'entrevista? A mi personalment  pel
+mat? (m?s igual l'hora).
+
+Albert
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+
+iD8DBQFA2FjykqfboQkHmGARAiC7AJ9+FqyNdzyKH0Y0E5bAM2aZK/9bFQCfRR+3
+U596GUTQe1z1CFmHV07dE9Q=
+=V9kE
+-----END PGP SIGNATURE-----
+
+
+From gnome_xxi at hotmail.com  Tue Jun 22 18:19:32 2004
+From: gnome_xxi at hotmail.com (=?iso-8859-1?B?Sm9uYXRoYW4gTWFydO0=?=)
+Date: Tue, 22 Jun 2004 16:19:32 +0000
+Subject: [Taca-dev] Entrevista P2
+Message-ID: <BAY16-F11DEA2VqFnW000009e5b@hotmail.com>
+
+El lluis i jo hem parlat amb la Julita i li hem comentat que si li sembla b? 
+qued?ssim el dia 2 (divendres) ja que jo tinc examen el dia 1 per la tarda 
+de GPI i em va bastant malament quedar dimecres perqu? dimarts tinc el de 
+SGBD.
+Ens ha dit que en principi no hi havia problema, per? que li envi?ssim un 
+email.
+Aix? que si us va b?, seria divendres 2 de juliol al mat? o tarda, com 
+volgueu, tampoc no crec q porti massa estona.
+Si no us va b?, m'ha dit que no calia que estigu?ssim tots els components 
+del grup, perqu? nom?s ?s per dir-li el que hem fet...
+
+En fi, ja direu.
+Per cert Albert, ja dir?s quan vols que t'ajudem a portar la m?quina al 
+curro, si vols el mateix dia de l'entrevista ja la portem cap all?.
+
+Venga, sort amb criptografia, dbd, i lo q tingueu!
+SALUT!
+                                                               Jonathan
+
+
+>From: Albert Farr?s <albertfc at anota.net>
+>To: taca-dev at lists.berlios.de
+>Subject: [Taca-dev] Entrevista P2
+>Date: Tue, 22 Jun 2004 16:06:10 +0000
+>
+>-----BEGIN PGP SIGNED MESSAGE-----
+>Hash: SHA1
+>
+>Hola!
+>
+>	A quina hora us va b? quedar per l'entrevista? A mi personalment  pel
+>mat? (m?s igual l'hora).
+>
+>Albert
+>
+>-----BEGIN PGP SIGNATURE-----
+>Version: GnuPG v1.2.4 (GNU/Linux)
+>Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+>
+>iD8DBQFA2FjykqfboQkHmGARAiC7AJ9+FqyNdzyKH0Y0E5bAM2aZK/9bFQCfRR+3
+>U596GUTQe1z1CFmHV07dE9Q=
+>=V9kE
+>-----END PGP SIGNATURE-----
+>_______________________________________________
+>Taca-dev mailing list
+>Taca-dev at lists.berlios.de
+>http://lists.berlios.de/mailman/listinfo/taca-dev
+
+_________________________________________________________________
+Hor?scopo, tarot, numerolog?a... Escucha lo que te dicen los astros. 
+http://astrocentro.msn.es/
+
+
+
+From albertfc at anota.net  Tue Jun 22 22:18:37 2004
+From: albertfc at anota.net (=?ISO-8859-1?Q?Albert_Farr=E9s?=)
+Date: Tue, 22 Jun 2004 20:18:37 +0000
+Subject: [Taca-dev] Entrevista P2
+In-Reply-To: <BAY16-F11DEA2VqFnW000009e5b@hotmail.com>
+References: <BAY16-F11DEA2VqFnW000009e5b@hotmail.com>
+Message-ID: <40D8941D.6060409@anota.net>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+En/na Jonathan Mart? ha escrit:
+| El lluis i jo hem parlat amb la Julita i li hem comentat que si li
+| sembla b? qued?ssim el dia 2 (divendres) ja que jo tinc examen el dia 1
+| per la tarda de GPI i em va bastant malament quedar dimecres perqu?
+| dimarts tinc el de SGBD.
+| Ens ha dit que en principi no hi havia problema, per? que li envi?ssim
+| un email.
+| Aix? que si us va b?, seria divendres 2 de juliol al mat? o tarda, com
+| volgueu, tampoc no crec q porti massa estona.
+Ok, per mi millor perl mati
+| Si no us va b?, m'ha dit que no calia que estigu?ssim tots els
+| components del grup, perqu? nom?s ?s per dir-li el que hem fet...
+|
+| En fi, ja direu.
+| Per cert Albert, ja dir?s quan vols que t'ajudem a portar la m?quina al
+| curro, si vols el mateix dia de l'entrevista ja la portem cap all?.
+|
+vale
+| Venga, sort amb criptografia, dbd, i lo q tingueu!
+| SALUT!
+la necessitem
+|                                                               Jonathan
+|
+|
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+
+iD8DBQFA2JQdkqfboQkHmGARAvXsAJwLX87D4jTQbbJFvmEXGY5q/hR5zACgjSke
+zSUeTrhm7YNHAbIrfyjb8SA=
+=Eurq
+-----END PGP SIGNATURE-----
+
+
+From xscript at gmx.net  Tue Jun 29 19:27:25 2004
+From: xscript at gmx.net (Lluis)
+Date: Tue, 29 Jun 2004 19:27:25 +0200
+Subject: [Taca-dev] Re: entrevistas dso
+In-Reply-To: <40E16A49.7020500@ac.upc.es>
+References: <40E16A49.7020500@ac.upc.es>
+Message-ID: <20040629172725.GA1285@dante.xlab.taz>
+
+El 29/06/04, a les 15:10:33, Julita Corbalan ens deleit? amb les seg?ents paraules:
+> Hola
+> 
+> Nomes m'han enviat mail per quedar per les entrevistes els grups 1,5,6 i 
+> 9. En principi eren dema, i no tinc noticia
+> de la majoria. Us agrairia que m'enviessiu un mail per quedar.
+> 
+> Julita Corbalan
+> 
+Be, en principi avui haviem de quedar amb l'albert ell i jo, per saber
+quan ens va be, el cesar va dir que quan fos, i amb el jonatham vam dir
+el divendres a les 12:30
+
+us fa el divendres a les 12:30, doncs?
+
+si es aixi, siusplau que algu envii el mail a la julita, que jo ara
+marxa i segurament no tornare fins al vespre
+
+apa!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
+From albertfc at anota.net  Wed Jun 30 00:30:59 2004
+From: albertfc at anota.net (=?ISO-8859-1?Q?Albert_Farr=E9s?=)
+Date: Tue, 29 Jun 2004 22:30:59 +0000
+Subject: [Taca-dev] Re: entrevistas dso
+In-Reply-To: <20040629172725.GA1285@dante.xlab.taz>
+References: <40E16A49.7020500@ac.upc.es> <20040629172725.GA1285@dante.xlab.taz>
+Message-ID: <40E1EDA3.5040200@anota.net>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+En/na Lluis ha escrit:
+| El 29/06/04, a les 15:10:33, Julita Corbalan ens deleit? amb les
+seg?ents paraules:
+|
+|>Hola
+|>
+|>Nomes m'han enviat mail per quedar per les entrevistes els grups 1,5,6 i
+|>9. En principi eren dema, i no tinc noticia
+|>de la majoria. Us agrairia que m'enviessiu un mail per quedar.
+|>
+|>Julita Corbalan
+|>
+|
+| Be, en principi avui haviem de quedar amb l'albert ell i jo, per saber
+| quan ens va be, el cesar va dir que quan fos, i amb el jonatham vam dir
+| el divendres a les 12:30
+|
+| us fa el divendres a les 12:30, doncs?
+A mi si
+|
+| si es aixi, siusplau que algu envii el mail a la julita, que jo ara
+| marxa i segurament no tornare fins al vespre
+Si esteu tots d'acord, feu un reply i li enviem
+|
+| apa!
+
+Adeu
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+
+iD8DBQFA4e2jkqfboQkHmGARAkN6AJ0eS8V983BbrMrPa2mceHDbPFF8KgCdGGL2
+5iIRoTshRNxxb2et5fznpZU=
+=6Y5L
+-----END PGP SIGNATURE-----
+
+
+From gnome_xxi at hotmail.com  Wed Jun 30 12:00:19 2004
+From: gnome_xxi at hotmail.com (=?iso-8859-1?B?Sm9uYXRoYW4gTWFydO0=?=)
+Date: Wed, 30 Jun 2004 10:00:19 +0000
+Subject: [Taca-dev] Re: entrevistas dso
+Message-ID: <BAY16-F28X43B58NlyQ00030432@hotmail.com>
+
+Ale, ja li he enviat, si algu no hi pot anar mala sort, per? no podem estar 
+passant-nos la pilota i dient "ah si si a mi em va b?, a si a mi tambe, a si 
+bla bla bla bla" i no acabar mai enviant-li res!!
+
+Apa! SALUT!
+
+_________________________________________________________________
+Un amor, una aventura, compa??a para un viaje. Reg?strate gratis en MSN Amor 
+& Amistad. http://match.msn.es/
+
+
+
+From xscript at gmx.net  Wed Jun 30 19:59:11 2004
+From: xscript at gmx.net (Lluis)
+Date: Wed, 30 Jun 2004 19:59:11 +0200
+Subject: [Taca-dev] Re: entrevistas dso
+In-Reply-To: <40E1EDA3.5040200@anota.net>
+References: <40E16A49.7020500@ac.upc.es> <20040629172725.GA1285@dante.xlab.taz> <40E1EDA3.5040200@anota.net>
+Message-ID: <20040630175911.GB864@dante.xlab.taz>
+
+El 29/06/04, a les 22:30:59, Albert Farr?s ens deleit? amb les seg?ents paraules:
+> Si esteu tots d'acord, feu un reply i li enviem
+
+jo si, estic d'acord
+
+li envieu?
+
+apa!
+-- 
+ "And it's much the same thing with knowledge, for whenever you learn
+ something new, the whole world becomes that much richer."
+ -- The Princess of Pure Reason, as told by Norton Juster in The Phantom
+ Tollbooth 
+
+
